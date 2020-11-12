@@ -8,5 +8,16 @@
 import Foundation
 
 public final class SecondCellViewModel {
-    var someInfo: String? = "second"
+    var someInfo: String? = """
+        super
+
+
+        puper
+
+
+        long
+
+        
+        text
+    """
 }

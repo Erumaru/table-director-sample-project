@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     
     private lazy var tableDirector = TableDirector(tableView: tableView)
     private lazy var viewModel = ViewModel()
+    private lazy var firstCellAction = TableRowAction<FirstCell>(.click) {
+        print($0)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +27,7 @@ class ViewController: UIViewController {
     }
     
     private func subscribe() {
-        tableDirector += viewModel.firstCellViewModels.map { TableRow<FirstCell>(item: $0) }
+        tableDirector += viewModel.firstCellViewModels.map { TableRow<FirstCell>(item: $0, actions: [firstCellAction]) }
         tableDirector += viewModel.secondCellViewModels.map { TableRow<SecondCell>(item: $0) }
     }
     
